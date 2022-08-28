@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee05e40031442344c82b7ac5463f7bd2, type: 3}
+  m_Name: Quest_1
+  m_EditorClassIdentifier: 
+  isEnabled: 1
+  hasSeries: 1
+  thisPnj: 0
+  id: 0
+  seriesID: 5
+  title: Retrouve mon chat
+  description: "J'ai perdu mon chat peux tu m'aider \xE0 le retrouver ?"
+  sentences:
+  - retrouve mon chat
+  InProgressSentence:
+  - cherche encore
+  completeSentence:
+  - "bravo tu as trouv\xE9 mon chat"
+  afterQuestSentence:
+  - je suis le plus heureux
+  objectToFind: Coin
+  actualAmount: 0
+  amountToFind: 1
+  goldToGive: 50
+  statut: 1
