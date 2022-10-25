@@ -17,7 +17,7 @@ public class PNJ : MonoBehaviour
 
     public QuestSO quest;
 
-    //ns différentes icones
+    //les différentes icones
     public Sprite iconQuest1, iconQuest2;
 
     //notre sprite renderer
@@ -174,7 +174,6 @@ public class PNJ : MonoBehaviour
 
     public void NextLine(string[] sentence)
     {
-        //Debug.Log("aaaaa 2");
         manager.continueButton.SetActive(false);
 
         if(isOndial && index < sentence.Length - 1)

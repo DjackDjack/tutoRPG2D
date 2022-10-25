@@ -82,11 +82,11 @@ public class EnemyStats : MonoBehaviour
         {
             //distance entre l'entité ayant ce sript et notrte target
             dist = Vector2.Distance(transform.position, targetPlayer.transform.position);
-
+            //Debug.Log("dist:"+ dist);
             if(dist < attackRange && Time.time - lastAttackTime >= attackRate)
             {
-                //L'attaque de notre enemi
-                Debug.Log("J'attaque le joueur");
+                //L'attaque de notre ennemi
+                Debug.Log("ennemi attaque le joueur");
                 Attack();
             }
             else if(dist > attackRange)
@@ -97,22 +97,27 @@ public class EnemyStats : MonoBehaviour
                 if(currentWayPoint >= path.vectorPath.Count)
                 {
                     reachEndPath = true;
+                    Debug.Log("ennemi poursuit le joueur");
                 }
                 else
                 {
                     reachEndPath = false;
                 }
 
-                Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-                Vector2 force = direction * speed * Time.fixedDeltaTime;
-
-                rb.velocity = force;
-
-                float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
-
-                if(distance < nextWaypointDistance)
+                if(currentWayPoint < path.vectorPath.Count)
                 {
-                    currentWayPoint++;   
+                    Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
+                    Vector2 force = direction * speed * Time.fixedDeltaTime;
+
+                    rb.velocity = force;
+
+                    float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
+                
+
+                    if(distance < nextWaypointDistance)
+                    {
+                        currentWayPoint++;   
+                    }
                 }
 
             }

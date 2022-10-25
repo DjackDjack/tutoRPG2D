@@ -59,51 +59,51 @@ public class InventoryManager : MonoBehaviour
 
     public void ChargeItem(int i)
     {
-        int amountToUse = 0;
-        //Debug.Log("inventory[i].maxAmount: " + inventory[i].maxAmount);
-        //Debug.Log("amountToUse: " + amountToUse);
-        //Debug.Log(amountToUse.ToString() + "/" + inventory[i].maxAmount.ToString());
-        //valueToUse.text = amountToUse.ToString() + "/" + inventory[i].maxAmount.ToString();
-        //Debug.Log("inventory[i]: " + inventory[i]);
-        //(inventory[i]);
-        valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
-        //valueToUse.text = "a";
-
-        if(inventory[i].type == ItemSO.Type.Consommable)
+        if(i < inventory.Count)
         {
-            useButton.SetActive(true);
-            removeButton.SetActive(true);
-            amountToRemove.SetActive(true);
+            int amountToUse = 0;
+            valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
+
+            if(inventory[i].type == ItemSO.Type.Consommable)
+            {
+                useButton.SetActive(true);
+                removeButton.SetActive(true);
+                amountToRemove.SetActive(true);
+            }
+            else if(inventory[i].type == ItemSO.Type.Quest)
+            {
+                useButton.SetActive(false);
+                removeButton.SetActive(false);
+                amountToRemove.SetActive(false);
+            }
+            else if(inventory[i].type == ItemSO.Type.Commun)
+            {
+                useButton.SetActive(false);
+                removeButton.SetActive(true);
+                amountToRemove.SetActive(true);
+            }
+
+            holderDescription.SetActive(true);
+            title.text = inventory[i].title;
+            descriptionObject.text = inventory[i].description;
+            iconDescription.sprite = inventory[i].icon;
+
+            plusButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            plusButton.GetComponent<Button>().onClick.AddListener(delegate { PlusButton(i); });
+            
+            lessButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            lessButton.GetComponent<Button>().onClick.AddListener(delegate { LessButton(i); });
+
+            useButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            useButton.GetComponent<Button>().onClick.AddListener(delegate { UseItem(i); });
+
+            removeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            removeButton.GetComponent<Button>().onClick.AddListener(delegate { RemoveItem(i); });
         }
-        else if(inventory[i].type == ItemSO.Type.Quest)
+        else
         {
-            useButton.SetActive(false);
-            removeButton.SetActive(false);
-            amountToRemove.SetActive(false);
+            Debug.Log("emplacement vide");
         }
-        else if(inventory[i].type == ItemSO.Type.Commun)
-        {
-            useButton.SetActive(false);
-            removeButton.SetActive(true);
-            amountToRemove.SetActive(true);
-        }
-
-        holderDescription.SetActive(true);
-        title.text = inventory[i].title;
-        descriptionObject.text = inventory[i].description;
-        iconDescription.sprite = inventory[i].icon;
-
-        plusButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        plusButton.GetComponent<Button>().onClick.AddListener(delegate { PlusButton(i); });
-        
-        lessButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        lessButton.GetComponent<Button>().onClick.AddListener(delegate { LessButton(i); });
-
-        useButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        useButton.GetComponent<Button>().onClick.AddListener(delegate { UseItem(i); });
-
-        removeButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        removeButton.GetComponent<Button>().onClick.AddListener(delegate { RemoveItem(i); });
 
     }
 
@@ -125,6 +125,7 @@ public class InventoryManager : MonoBehaviour
             {
                 inventory[i].amount --;
             }
+            amountToUse = 0;
         }
         RefreshInventory();
         valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;   
@@ -139,13 +140,13 @@ public class InventoryManager : MonoBehaviour
             {
                 inventory.Remove(inventory[i]);
                 holderDescription.SetActive(false);
-                amountToUse = 0;
                 break;
             }
             else
             {
                 inventory[i].amount --;
             }
+            amountToUse = 0;
         }
         RefreshInventory();
         valueToUse.text = amountToUse + "/" + inventory[i].maxAmount;
@@ -201,17 +202,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    ///////////// test //////////
-
-    /*public static void DumpToConsole(object obj)
-    {
-        foreach(Property item in obj)
-        {
-            Debug.Log("a");
-        }
-        var output = JsonUtility.ToJson(obj, true);
-        Debug.Log(output);
-    }*/
 }
 
 

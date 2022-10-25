@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Coeur
   description: Coeur
   icon: {fileID: 615023859997206797, guid: d798b79c76d17fc48bab48f7630b941c, type: 3}
-  amount: 50
+  amount: 5
   goldToGive: 0
   amountToHeal: 1
   maxAmount: 99

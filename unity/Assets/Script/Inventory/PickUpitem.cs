@@ -32,7 +32,6 @@ public class PickUpitem : MonoBehaviour
             }
 
             InventoryManager.instance.inventory.Add(item);
-            Debug.Log("test");
             Destroy(gameObject);
        } 
     }

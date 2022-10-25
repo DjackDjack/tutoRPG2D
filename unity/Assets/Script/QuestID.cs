@@ -10,5 +10,4 @@ public class QuestID : MonoBehaviour
     {
         QuestManager.instance.ChargeQuest(questId);
     }
-    
 }

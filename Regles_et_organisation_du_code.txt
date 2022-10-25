@@ -1,0 +1,69 @@
+// Organisation du code \\
+
+Bibliothèques = lib.cs pour librairy
+
+
+
+
+// Règle de code \\
+
+Appelation (variables, methodes et classes)
+	.les différentes appelations sont en anglais
+	.les appelations doivent être explicites, autrement dit leur nom doit servir à comprendre ce qu'elles représentent ou leurs utilitées
+	.lorsqu'une appelation se compose de plusieur mot le tout ne doit pas contenir d'espace (sauf exception), la séparation des mots se fait par une majuscule
+		par exemple la variable: plusieurMotDansLeNom
+	.les variables commencent toujour par une lettre minuscule
+	.les méthodes et les classes commencent toujour par une lettre majuscule
+
+Commentaire
+	.les commentaire sont en français
+	.il doit y avoir un maximum de comentaire pour expliciter un maximum les différentes parties du code 
+	(sans non plus surcharger, pas besoin de commenter une appelation déjà assez explicite par son nom) 
+
+Eviter au maximum les redondance:
+	.si il ya  une redondance de code dans le même script créer une fonction
+	.si il y a une redondance de code ou de méthodes entre au moins 2 classes ajouter ce code à la Bibliothèques
+
+Variables générique
+	.quand on parle de la création d'un objet on utilisera la variable 
+	.lors de boucle imbriqué on utilisera les variable de boucle dans l'ordre suivant:
+		i (simple boucle) -> j -> k -> l -> m -> ect jusqu'à z
+	.test / Test = variable et nom de fonction utilisé pour effectué des tests temporaires, si on en réalise plusieurs on les apperlera test1, test2, test3, ect
+
+Règle d'écriture
+	. toujours un espace après une virgule dans les paramètres ou dans boucles for
+		par exemple: MaFonction(int a, str b, bool c)
+	.toujours un espaces entre les différentes conditions
+		par exempl: if( a==b && c>d)
+	.les texte dans un Debug.Log doivent être en fr
+	.Plutôt que de mettre seulement un "if(a) -> a" mettre un else affichant dans la console pourquoi le "a" ne s'est pas déclenché, ici "else -> Debug.Log("a n'existe pas")
+	.Les tags et les layers commençent par une majuscule
+
+Affichage
+	.Que ce soit dans le manager de layer ou dans le manager de la scene la supersposition des layer se fera toujours comme suit:
+		...
+		niveau n-1
+		niveau n 
+		niveau n+1
+		...
+		Le niveau niveau n-1 étant le niveau le plus "en arrière (ex:sol) et le niveau n+1 le niveu le plus "en avant" (ex:inventaire)
+
+
+
+// Abréviation et Lexique \\
+
+lib = library
+
+tile map = fond de la carte
+
+Debug.Log
+
+
+
+
+
+
+
+
+
+	
